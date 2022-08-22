@@ -15,9 +15,7 @@ Also, beware of plateaus !!! [1, 2, 2, 2, 1] has a peak while [1, 2, 2, 2, 3] an
 */
 
 function pickPeaks(arr) {
-	let pos;
-	let peak;
-	let len = 1;
+	let pos = -1;
 	let posArr = [];
 	let peaksArr = [];
 
@@ -26,12 +24,10 @@ function pickPeaks(arr) {
 	for (let i = 1; i < arr.length; ++i) {
 		if (arr[i] > arr[i - 1]) {
 			pos = i;
-			peak = arr[i];
-			len++;
-		} else if (len > 1) {
+		} else if (arr[i] < arr[i - 1] && pos !== -1) {
 			posArr.push(pos);
-			peaksArr.push(peak);
-			len = 1;
+			peaksArr.push(arr[pos]);
+			pos = -1;
 		}
 	}
 	return { pos: posArr, peaks: peaksArr };
