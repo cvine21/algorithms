@@ -18,11 +18,9 @@ Example 2:
  */
 var majorityElement = function (nums) {
 	const sorted = nums.sort((a, b) => a - b);
-	for (let i = sorted.length; i >= sorted.length / 2; --i) {
-		if (i - sorted.indexOf(sorted[i]) + 1 > nums.length / 2)
-			return sorted[i];
-	}
+	return sorted[Math.floor(nums.length / 2)];
 };
 
 console.log(majorityElement([3, 2, 3]));
-// console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
+console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
+console.log(majorityElement([1]));
