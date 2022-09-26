@@ -16,26 +16,6 @@ For example:
  * @param {string} columnTitle
  * @return {number}
  */
-// var titleToNumber = function (columnTitle) {
-// 	const a = "A".charCodeAt(0);
-// 	const z = "Z".charCodeAt(0);
-// 	const alphRange = z - a;
-
-// 	let num = 0;
-// 	const len = columnTitle.length;
-
-// 	for (let i = 0; i < len; ++i) {
-// 		const current = columnTitle[i].charCodeAt(0) - a + 1;
-
-// 		// if (i === len - 1) {
-// 		// 	num += current;
-// 		// } else {
-// 			num += current * Math.pow(alphRange + 1, len - (i + 1));
-// 		// }
-// 	}
-
-// 	return num;
-// };
 
 var titleToNumber = function (columnTitle) {
 	const a = "A".charCodeAt(0);
