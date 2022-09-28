@@ -12,7 +12,7 @@ Example 2:
 	Output: [0]
 */
 
-/*
+/**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */

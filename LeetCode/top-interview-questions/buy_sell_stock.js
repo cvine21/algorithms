@@ -18,7 +18,7 @@ Example 2:
 	Explanation: In this case, no transactions are done and the max profit = 0.
 */
 
-/*
+/**
  * @param {number[]} prices
  * @return {number}
  */

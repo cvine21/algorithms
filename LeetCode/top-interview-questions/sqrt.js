@@ -6,7 +6,7 @@ Since the return type is an integer, the decimal digits are truncated, and only 
 Note: You are not allowed to use any built-in exponent function or operator, such as pow(x, 0.5) or x ** 0.5.
 */
 
-/*
+/**
  * @param {number} x
  * @return {number}
  */

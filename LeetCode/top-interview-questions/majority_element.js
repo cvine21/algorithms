@@ -12,7 +12,7 @@ Example 2:
 	Output: 2
 */
 
-/*
+/**
  * @param {number[]} nums
  * @return {number}
  */

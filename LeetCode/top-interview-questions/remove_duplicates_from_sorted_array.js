@@ -44,7 +44,7 @@ Constraints:
 nums is sorted in non-decreasing order.
 */
 
-/*
+/**
  * @param {number[]} nums
  * @return {number}
  */

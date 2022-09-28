@@ -14,7 +14,7 @@ Example 3:
 	Output: true
 */
 
-/*
+/**
  * @param {number[]} nums
  * @return {boolean}
  */

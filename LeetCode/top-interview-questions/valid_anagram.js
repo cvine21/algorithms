@@ -12,7 +12,7 @@ Example 2:
 	Output: false
 */
 
-/*
+/**
  * @param {string} s
  * @param {string} t
  * @return {boolean}

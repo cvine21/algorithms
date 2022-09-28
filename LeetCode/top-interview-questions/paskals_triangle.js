@@ -12,7 +12,7 @@ Example 2:
 	Output: [[1]]
 */
 
-/*
+/**
  * @param {number} numRows
  * @return {number[][]}
  */

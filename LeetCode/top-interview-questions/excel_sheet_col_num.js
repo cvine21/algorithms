@@ -12,7 +12,7 @@ For example:
 	...
 */
 
-/*
+/**
  * @param {string} columnTitle
  * @return {number}
  */
