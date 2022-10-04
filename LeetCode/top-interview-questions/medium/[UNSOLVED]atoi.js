@@ -19,22 +19,26 @@ Note:
  * @param {string} s
  * @return {number}
  */
-var myAtoi = function(s) {
-	let sign = '';
-	let res = 0;
-	let i = 0;
+var myAtoi = function (s) {
+  let minSigned = -0x7fffffff - 1;
+  let maxSigned = 0x7fffffff;
+  let res = parseInt(s);
 
-	while (s[i] === ' ') { ++i; }
-
-	if (s[i++] === '-') sign = '-';
-
-	
-	for (let i = 0; i < s.length; ++i) {
-		if (typeof s[i] == 'number')
-			res += s[i]; 
-	}
-
-	return Number(sign + res);
+  if (isNaN(res)) return 0;
+  if (res < minSigned) return minSigned;
+  if (res > maxSigned) return maxSigned;
+  return res;
 };
 
-console.log(myAtoi('42'));
+console.log(myAtoi("42")); // 42
+console.log(myAtoi("   -42")); // -42
+console.log(myAtoi("   +42")); // 42
+console.log(myAtoi("4193 with words")); // 4193
+console.log(myAtoi("")); // 0
+console.log(myAtoi(" ")); // 0
+console.log(myAtoi("only words")); // 0
+console.log(myAtoi("91283472332")); // 2147483647
+console.log(myAtoi("-2147483647")); // -2147483647
+console.log(myAtoi("-91283472332")); // -2147483648
+console.log(myAtoi("      -11919730356x")); // --2147483648
+console.log(myAtoi("  -0012a42")); // -12
