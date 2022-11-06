@@ -1,4 +1,6 @@
 /*
+202. Happy Number
+
 Write an algorithm to determine if a number n is happy.
 
 A happy number is a number defined by the following process:
@@ -24,17 +26,29 @@ Example 2:
 	Output: false
 */
 
+const squaresSum = (num) => {
+	let next = 0;
+
+	for (let n = num; n / 10; n = Math.floor(n / 10)) {
+		next += (n % 10) ** 2;
+	}
+
+	return next;
+};
+
 /**
  * @param {number} n
  * @return {boolean}
  */
 var isHappy = function (n) {
-	let arr = n.toString().split("");
-	let res = arr.reduce((accum, cur) => accum + cur ** 2, 0);
+	const hashSet = [];
 
-	if (res === 1) return true;
+	for (let next = n; !hashSet.includes(next); next = squaresSum(next)) {
+		if (next === 1) return true;
+		hashSet.push(next);
+	}
 
-	return isHappy(res);
+	return false;
 };
 
 console.log(isHappy(19)); // true
