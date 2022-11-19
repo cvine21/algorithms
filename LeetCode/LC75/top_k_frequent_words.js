@@ -25,3 +25,37 @@ Constraints:
 Follow-up: Could you solve it in O(n log(k)) time and O(n) extra space?
 */
 
+/**
+ * @param {string[]} words
+ * @param {number} k
+ * @return {string[]}
+ */
+var topKFrequent = function (words, k) {
+	const wordsCountMap = {};
+	const freq = new Array(words.length);
+	const result = [];
+
+	words.forEach((item) => {
+		wordsCountMap[item] = 1 + wordsCountMap[item] || 0;
+	});
+
+	for (let item of Object.keys(wordsCountMap)) {
+		const count = wordsCountMap[item];
+
+		if (!freq[count]) freq[count] = [];
+		freq[count].push(item);
+	}
+
+	for (let i = freq.length - 1; i >= 0; i--) {
+		if (!freq[i]) continue;
+
+		const arr = freq[i].sort();
+
+		for (let i = 0; i < arr.length; i++) {
+			result.push(arr[i]);
+			if (result.length === k) return result;
+		}
+	}
+
+	return result;
+};
