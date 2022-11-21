@@ -41,19 +41,19 @@ var solution = function (isBadVersion) {
 	 * @return {integer} The first bad version
 	 */
 	return function (n) {
-		let start = 1;
-		let end = n;
-		let mid;
+		let first = 1;
+		let last = n;
 
-		while (isBadVersion(end)) {
-			mid = Math.floor((start + end) / 2);
+		while (first <= last) {
+			let mid = Math.round((first + last) / 2);
 
 			if (isBadVersion(mid)) {
-				end = mid - 1;
+				last = mid - 1;
 			} else {
-				start = mid + 1;
+				first = mid + 1;
 			}
 		}
-		return mid;
+
+		return first;
 	};
 };
