@@ -1,4 +1,6 @@
 /*
+733. Flood Fill
+
 An image is represented by an m x n integer grid image where image[i][j] represents the pixel value of the image.
 
 You are also given three integers sr, sc, and color. You should perform a flood fill on the image starting from the pixel image[sr][sc].
@@ -17,7 +19,7 @@ Example 2:
 	Input: image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, color = 0
 	Output: [[0,0,0],[0,0,0]]
 	Explanation: The starting pixel is already colored 0, so no changes are made to the image.
- 
+
 
 Constraints:
 	m == image.length
@@ -36,20 +38,20 @@ Constraints:
  * @return {number[][]}
  */
 var floodFill = function (image, sr, sc, color) {
-	let currColor = image[sr][sc];
+	let prevColor = image[sr][sc];
 
-	if (currColor == color) return image;
+	const dfs = (i, j) => {
+		if (image[i][j] !== prevColor) return;
 
-	function dfs(r, c) {
-		if (image[r][c] === currColor) {
-			image[r][c] = color;
-			if (c >= 1) dfs(r, c - 1);
-			if (r >= 1) dfs(r - 1, c);
-			if (r + 1 < image.length) dfs(r + 1, c);
-			if (c + 1 < image[0].length) dfs(r, c + 1);
-		}
-	}
+		image[i][j] = color;
 
-	dfs(sr, sc);
+		if (i + 1 < image.length) dfs(i + 1, j);
+		if (j + 1 < image[0].length) dfs(i, j + 1);
+		if (i > 0) dfs(i - 1, j);
+		if (j > 0) dfs(i, j - 1);
+	};
+
+	if (color !== prevColor) dfs(sr, sc);
+
 	return image;
 };
