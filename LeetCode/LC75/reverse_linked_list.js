@@ -34,7 +34,9 @@ function ListNode(val, next) {
  * @return {ListNode}
  */
 
-/* Version 1 */
+/*
+Iterative approach
+*/
 // var reverseList = function (head) {
 // 	if (!head) return null;
 
@@ -53,13 +55,23 @@ function ListNode(val, next) {
 // 	return current;
 // };
 
-/* Version 2 */
-var reverseList = (head, reversed = null) => {
-	while (head) {
-		[head.next, reversed, head] = [reversed, head, head.next];
-	}
-	return reversed;
-};
+/*
+Recursive approach
+*/
+var reverseList = function (head) {
+    if (!head) return null;
+
+    let newHead = head;
+
+    if (head.next) {
+        newHead = reverseList(head.next);
+        head.next.next = head;
+    }
+
+    head.next = null;
+
+    return newHead;
+}
 
 let list5 = new ListNode(5);
 let list4 = new ListNode(4, list5);

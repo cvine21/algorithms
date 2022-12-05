@@ -13,7 +13,6 @@ The final sorted array should not be returned by the function, but instead be st
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
-
 var merge = function (nums1, m, nums2, n) {
 	let tmp;
 	let i1 = m - 1;
