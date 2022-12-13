@@ -29,20 +29,46 @@ function Node(val, children) {
 	this.children = children;
 }
 
+/*
+ * Recursive approach
+ */
+// /**
+//  * @param {Node|null} root
+//  * @return {number[]}
+//  */
+// var preorder = function (root) {
+// 	const values = [];
+
+// 	if (!root) return [];
+
+// 	values.push(root.val);
+
+// 	root.children.forEach((child) => {
+// 		values.push(...preorder(child));
+// 	});
+
+// 	return values;
+// };
+
+/*
+ * Iterative approach
+ */
 /**
  * @param {Node|null} root
  * @return {number[]}
  */
 var preorder = function (root) {
-	const values = [];
-
 	if (!root) return [];
 
-	values.push(root.val);
+	let res = [];
+	let queue = [root];
 
-	root.children.forEach((child) => {
-		values.push(...preorder(child));
-	});
+	while (queue.length) {
+		let node = queue.shift();
 
-	return values;
+		res.push(node.val);
+		queue.unshift(...node.children);
+	}
+
+	return res;
 };
