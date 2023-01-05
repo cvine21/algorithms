@@ -1,4 +1,6 @@
 /*
+217. Contains Duplicate
+
 Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
 Example 1:
@@ -12,6 +14,10 @@ Example 2:
 Example 3:
 	Input: nums = [1,1,1,3,3,4,3,2,4,2]
 	Output: true
+
+Constraints:
+  1 <= nums.length <= 105
+  -109 <= nums[i] <= 109
 */
 
 /**
@@ -19,9 +25,14 @@ Example 3:
  * @return {boolean}
  */
 var containsDuplicate = function (nums) {
-	const [...newSet] = new Set(nums);
-	if (newSet.length !== nums.length) return true;
-	return false;
+  let hashMap = {};
+
+  for (let item of nums) {
+    if (hashMap[item]) return true;
+    hashMap[item] = true;
+  }
+
+  return false;
 };
 
 console.log(containsDuplicate([1, 2, 3, 1])); // true
